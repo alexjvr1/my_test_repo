@@ -30,15 +30,15 @@ class Hangman:
 
 
         #Check if the letter is in the word 
-        def check_guess(self.guess):
+        def check_guess(self,guess):
         """"The function takes the letter provided by the user, and checks if it is in the random_word. It then replaces the placeholder "_" with the letter and returns the full word with all the correctly guessed letters and placeholders for the letters still to be guessed """
         guess_lower = guess.lower()
                 if guess_lower in self.word: 
-                        print("Good guess! {guess} is in the word.")
+                        print("Good guess!, guess_lower, "is in the word.")
 
 
 #function asks user to guess a letter
-        def ask_for_input():
+        def ask_for_input(self):
         """Prompt user to provide a single letter as a guess for the word """
                 while True: 
                         guess = input("Guess a letter: ")
@@ -47,4 +47,5 @@ class Hangman:
                                 elif guess in self.list_of_guesses: 
                                         print("You already tried that letter!")
                                 else: 
-                                        self.list_of_guesses.append(guess) and check_guess(guess)
+                                        self.list_of_guesses.append(guess)
+					self.check_guess(guess=guess)
