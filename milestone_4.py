@@ -40,6 +40,11 @@ class Hangman:
                                   self.word_guessed[index] = guess_lower
                                   print(self.word_guessed)  
                         self.num_letters = self.num_letters - 1   
+		else: 
+			self.num_lives = self.num_lives - 1
+			print("Sorry,", guess_lower, "is not in the word.")        
+			print("You have", self.num_lives,"lives left.")  
+
 
 
 #function asks user to guess a letter
