@@ -39,7 +39,10 @@ class Hangman:
                         for index in char_index:
                                   self.word_guessed[index] = guess_lower
                                   print(self.word_guessed)  
-                        self.num_letters = self.num_letters - 1   
+                        self.num_letters = self.word_guessed.count("_")   
+                        if self.num_letters == 0: 
+                                  print("You did it! Congrats!")  
+                                  return   
 		else: 
 			self.num_lives = self.num_lives - 1
 			print("Sorry,", guess_lower, "is not in the word.")        
