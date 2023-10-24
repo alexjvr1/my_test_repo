@@ -19,7 +19,7 @@ class Hangman:
 """The class requires a list of words (word_list), and number of lives (num_lives, default=5) """
 
                 #define the parameters
-                self.word_list = word.list
+                self.word_list = word_list
                 self.num_lives = num_lives
                 self.word = random.choice(word_list)
                 self.word_guessed = list(re.sub("[a-zA-Z]", "_", self.word))
@@ -34,7 +34,7 @@ class Hangman:
         """"The function takes the letter provided by the user, and checks if it is in the random_word. It then replaces the placeholder "_" with the letter and returns the full word with all the correctly guessed letters and placeholders for the letters still to be guessed """
         guess_lower = guess.lower()
                 if guess_lower in self.word: 
-                        print("Good guess!, guess_lower, "is in the word.")
+                        print("Good guess!", guess_lower, "is in the word.")
                         char_index = [pos for pos, char in enumerate(self.word) if char == guess_lower]
                         for index in char_index:
                                   self.word_guessed[index] = guess_lower
