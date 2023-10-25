@@ -1,9 +1,3 @@
-""
-A game of Hangman
-
-A word is randommy chosen from a list of words
-""
-
 #Modules to import
 import random
 import re
@@ -11,12 +5,8 @@ import re
 #Create the Hangman class
 class Hangman: 
 
-""" Hangman Class with all the functions to play Hangman """
-
-
         #Initialise the attributes of the class
         def __init__(self, word_list, num_lives=5):
-"""The class requires a list of words (word_list), and number of lives (num_lives, default=5) """
 
                 #define the parameters
                 self.word_list = word_list
@@ -31,34 +21,32 @@ class Hangman:
 
         #Check if the letter is in the word 
         def check_guess(self,guess):
-        """"The function takes the letter provided by the user, and checks if it is in the random_word. It then replaces the placeholder "_" with the letter and returns the full word with all the correctly guessed letters and placeholders for the letters still to be guessed """
-        guess_lower = guess.lower()
-                if guess_lower in self.word: 
-                        print("Good guess!", guess_lower, "is in the word.")
-                        char_index = [pos for pos, char in enumerate(self.word) if char == guess_lower]
-                        for index in char_index:
-                                  self.word_guessed[index] = guess_lower
-                                  print(self.word_guessed)  
-                        self.num_letters = self.word_guessed.count("_")   
-                        if self.num_letters == 0: 
-                                  print("You did it! Congrats!")  
-                                  return   
-		else: 
-			self.num_lives = self.num_lives - 1
-			print("Sorry,", guess_lower, "is not in the word.")        
-			print("You have", self.num_lives,"lives left.")  
+	        guess_lower = guess.lower()
+        	if guess_lower in self.word: 
+                	        print("Good guess!", guess_lower, "is in the word.")
+                        	char_index = [pos for pos, char in enumerate(self.word) if char == guess_lower]
+                        	for index in char_index:
+                        		self.word_guessed[index] = guess_lower
+                        		print(self.word_guessed)  
+                        	self.num_letters = self.word_guessed.count("_")
+                        	if self.num_letters == 0:
+                        		print("You did it! Congrats!")  
+                       			return   
+        	else:   	
+                        	self.num_lives = self.num_lives - 1
+                        	print("Sorry,", guess_lower, "is not in the word.")        
+                        	print("You have", self.num_lives,"lives left.")  
 
 
 
 #function asks user to guess a letter
         def ask_for_input(self):
-        """Prompt user to provide a single letter as a guess for the word """
                 while True: 
                         guess = input("Guess a letter: ")
-                                if not guess.isalpha() or len(guess) > 1:
+                        if not guess.isalpha() or len(guess) > 1:
                                         print("Invalid letter. Please, enter a single alphabetical character.")
-                                elif guess in self.list_of_guesses: 
+                        elif guess in self.list_of_guesses: 
                                         print("You already tried that letter!")
-                                else: 
+                        else: 
                                         self.list_of_guesses.append(guess)
-					self.check_guess(guess=guess)
+                                        self.check_guess(guess=guess)
