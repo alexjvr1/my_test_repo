@@ -20,3 +20,15 @@ df["POLICE"].sum()
 #Calculate the ratio: 
 ratio_police_to_firedept = (df["POLICE"].sum())/((df["FIREDEPT"]).sum())
 
+#Calculate the base salary for each profession: 
+
+#Bool True and False equates to 1 and 0 values. So we can multiply the BasePay by the bool column. 
+df.loc[:,"POLICE"] = df.loc[:,"POLICE"].mul(df["BasePay"])
+
+
+#sum() counts the number of occurrences. 
+#The first part of the expression adds up the total salaries
+#The second part counts the number of rows with a salary (ie number of POLICE)
+df.POLICE.sum() / (df.POLICE > 1).sum()
+
+df.FIREDEPT.sum() / (df.FIREDEPT > 1).sum()
